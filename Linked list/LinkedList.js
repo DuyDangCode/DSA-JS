@@ -1,3 +1,5 @@
+import LinkedListNode from './LinkedListNode.js';
+
 export default class LinkedList {
   constructor() {
     this.head = null;
@@ -34,14 +36,14 @@ export default class LinkedList {
       currentNode !== null;
       currentNode = currentNode.next
     ) {
-      if (i === rawIndex - 1) {
+      if (index === rawIndex - 1) {
         const newNode = new LinkedListNode(value, currentNode.next);
-        currentNode.next = newNode;
         if (!currentNode.next) {
           this.tail = newNode;
         }
+        currentNode.next = newNode;
       }
-      i++;
+      index++;
     }
   }
 
@@ -55,9 +57,23 @@ export default class LinkedList {
 
   fromArray(values) {}
 
-  toArray() {}
+  toArray() {
+    const result = [];
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      currentNode = currentNode.next
+    ) {
+      result.push(currentNode);
+    }
+    return result;
+  }
 
-  toString(callback) {}
+  toString(callback) {
+    return this.toArray()
+      .map((node) => node.toString(callback))
+      .toString();
+  }
 
   reverse() {}
 }
