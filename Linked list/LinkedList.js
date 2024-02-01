@@ -47,7 +47,32 @@ export default class LinkedList {
     }
   }
 
-  delete(value) {}
+  delete(value) {
+    let preNode = this.head;
+    let result = 0;
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      currentNode = currentNode.next
+    ) {
+      if (currentNode.value === value) {
+        if (currentNode.next === null) {
+          this.tail = preNode;
+        }
+        if (preNode === currentNode) {
+          this.head = currentNode.next;
+          preNode = this.head;
+        } else {
+          preNode.next = currentNode.next;
+        }
+        result = 1;
+      } else {
+        preNode = currentNode;
+      }
+    }
+
+    return result;
+  }
 
   find({ value = undefined, callback = undefined }) {}
 
