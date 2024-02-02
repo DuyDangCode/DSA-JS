@@ -154,5 +154,19 @@ export default class LinkedList {
       .toString();
   }
 
-  reverse() {}
+  reverse() {
+    if (!this.head) return 0;
+    let preNode = null;
+    let nextNode = null;
+    let currentNode = this.head;
+    while (currentNode) {
+      nextNode = currentNode.next;
+      currentNode.next = preNode;
+      preNode = currentNode;
+      currentNode = nextNode;
+    }
+    this.tail = this.head;
+    this.head = preNode;
+    return 1;
+  }
 }
