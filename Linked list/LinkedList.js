@@ -116,7 +116,18 @@ export default class LinkedList {
     return 0;
   }
 
-  deleteHead() {}
+  deleteHead() {
+    if (!this.head) {
+      return 0;
+    }
+    if (this.head === this.tail) {
+      this.head = this.tail = null;
+      return 1;
+    }
+
+    this.head = this.head.next;
+    return 1;
+  }
 
   fromArray(values) {}
 
