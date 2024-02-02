@@ -94,7 +94,27 @@ export default class LinkedList {
     return null;
   }
 
-  deleteTail() {}
+  deleteTail() {
+    if (!this.head) {
+      return 0;
+    }
+    if (this.head === this.tail) {
+      this.head = this.tail = null;
+      return 1;
+    }
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      currentNode = currentNode.next
+    ) {
+      if (currentNode.next.next === null) {
+        currentNode.next = null;
+        this.tail = currentNode;
+        return 1;
+      }
+    }
+    return 0;
+  }
 
   deleteHead() {}
 
