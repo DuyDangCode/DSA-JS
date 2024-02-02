@@ -12,5 +12,8 @@ linkedList.append(17);
 
 // console.log(linkedList.toArray());
 console.log(linkedList.toString());
+console.log(linkedList.find({ value: 16 }));
+
 linkedList.delete(16);
+
 console.log(linkedList.toString());

@@ -74,7 +74,25 @@ export default class LinkedList {
     return result;
   }
 
-  find({ value = undefined, callback = undefined }) {}
+  find({ value = undefined, callback = undefined }) {
+    if (!this.head) return null;
+
+    for (
+      let currentNode = this.head;
+      currentNode !== null;
+      currentNode = currentNode.next
+    ) {
+      if (callback && callback(currentNode.value)) {
+        return currentNode;
+      }
+
+      if (currentNode.value === value) {
+        return currentNode;
+      }
+    }
+
+    return null;
+  }
 
   deleteTail() {}
 
