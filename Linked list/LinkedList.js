@@ -129,7 +129,12 @@ export default class LinkedList {
     return 1;
   }
 
-  fromArray(values) {}
+  fromArray(values) {
+    values.map((value) => {
+      this.append(value);
+    });
+    return this;
+  }
 
   toArray() {
     const result = [];

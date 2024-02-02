@@ -17,4 +17,5 @@ console.log(linkedList.toString());
 linkedList.delete(16);
 linkedList.deleteTail();
 
+linkedList.fromArray([1, 2, 3, 45, 6, 67]);
 console.log(linkedList.toString());
